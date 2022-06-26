@@ -9,8 +9,6 @@ import { setDestination, setOrigin } from '../slices/navSlice'
 import { DestinationState } from '../context/destinationContext'
 const HomeScreen = () => {
 	const dispatch = useDispatch()
-	const { input } = DestinationState()
-	console.log('🚀 ~ file: HomeScreen.js ~ line 13 ~ HomeScreen ~ input', input)
 
 	return (
 		<SafeAreaView style={tw`bg-white h-full`}>

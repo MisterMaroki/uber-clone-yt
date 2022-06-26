@@ -15,9 +15,23 @@ const Map = () => {
 
 	useEffect(() => {
 		if (!origin || !destination) return
-		mapRef.current.fitToCoordinates([origin, destination], {
-			edgePadding: { top: 100, right: 100, bottom: 100, left: 100 },
-		})
+
+		mapRef.current.fitToCoordinates(
+			[
+				{
+					latitude: origin.location.lat,
+					longitude: origin.location.lng,
+				},
+				{
+					latitude: destination.location.lat,
+					longitude: destination.location.lng,
+				},
+			],
+			{
+				edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+				animated: true,
+			}
+		)
 	}, [origin, destination])
 
 	return (
@@ -28,8 +42,8 @@ const Map = () => {
 			initialRegion={{
 				latitude: origin.location.lat,
 				longitude: origin.location.lng,
-				latitudeDelta: 0.05,
-				longitudeDelta: 0.05,
+				latitudeDelta: 0.005,
+				longitudeDelta: 0.005,
 			}}
 		>
 			{origin && destination && (
@@ -47,7 +61,7 @@ const Map = () => {
 						latitude: origin.location.lat,
 						longitude: origin.location.lng,
 					}}
-					title="Origin"
+					title="origin"
 					description={origin.description}
 					indentifier="origin"
 				/>
@@ -58,7 +72,7 @@ const Map = () => {
 						latitude: destination.location.lat,
 						longitude: destination.location.lng,
 					}}
-					title="Destination"
+					title="destination"
 					description={destination.description}
 					indentifier="destination"
 				/>

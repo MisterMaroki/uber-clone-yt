@@ -8,7 +8,6 @@ import RideOptionsCard from '../components/RideOptionsCard'
 import { DestinationState } from '../context/destinationContext'
 const MapScreen = () => {
 	const Stack = createNativeStackNavigator()
-	const { input } = DestinationState()
 	const [keyboardStatus, setKeyboardStatus] = useState(false)
 
 	useEffect(() => {
