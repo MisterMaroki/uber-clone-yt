@@ -20,6 +20,7 @@ const HomeScreen = () => {
 				/>
 				<GooglePlacesAutocomplete
 					nearbyPlacesAPI="GooglePlacesSearch"
+					fetchDetails={true}
 					styles={{
 						container: {
 							flex: 0,
@@ -34,7 +35,7 @@ const HomeScreen = () => {
 					onPress={(data, details = null) => {
 						dispatch(
 							setOrigin({
-								location: details.geometry?.location,
+								location: details.geometry.location,
 								description: data.description,
 							})
 						)
