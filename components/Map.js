@@ -61,7 +61,7 @@ const Map = () => {
 						latitude: origin.location.lat,
 						longitude: origin.location.lng,
 					}}
-					title="origin"
+					title="Origin"
 					description={origin.description}
 					indentifier="origin"
 				/>
@@ -72,7 +72,7 @@ const Map = () => {
 						latitude: destination.location.lat,
 						longitude: destination.location.lng,
 					}}
-					title="destination"
+					title="Destination"
 					description={destination.description}
 					indentifier="destination"
 				/>
