@@ -5,7 +5,6 @@ import Map from '../components/Map'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import NavigateCard from '../components/NavigateCard'
 import RideOptionsCard from '../components/RideOptionsCard'
-import { DestinationState } from '../context/destinationContext'
 const MapScreen = () => {
 	const Stack = createNativeStackNavigator()
 	const [keyboardStatus, setKeyboardStatus] = useState(false)

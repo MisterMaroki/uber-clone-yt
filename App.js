@@ -7,7 +7,6 @@ import { store } from './store'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import MapScreen from './screens/MapScreen'
-import DestinationContext from './context/destinationContext'
 
 export default function App() {
 	const Stack = createNativeStackNavigator()

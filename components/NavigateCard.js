@@ -6,7 +6,7 @@ import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { setDestination } from '../slices/navSlice'
-import { DestinationState } from '../context/destinationContext'
+import NavFavourites from './NavFavourites'
 const NavigateCard = () => {
 	const dispatch = useDispatch()
 	const navigation = useNavigation()
@@ -23,6 +23,8 @@ const NavigateCard = () => {
 					minLength={2}
 					returnKeyType="search"
 					onPress={(data, details = null) => {
+						console.log('location', details.geometry.location)
+						console.log('description', data.description)
 						dispatch(
 							setDestination({
 								location: details.geometry.location,
@@ -38,6 +40,7 @@ const NavigateCard = () => {
 						language: 'en',
 					}}
 				/>
+				<NavFavourites />
 			</View>
 		</SafeAreaView>
 	)
