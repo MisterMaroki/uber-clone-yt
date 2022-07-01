@@ -30,14 +30,13 @@ const NavigateCard = () => {
 					minLength={2}
 					returnKeyType="search"
 					onPress={(data, details = null) => {
+						// navigation.navigate('RideOptionsCard')
 						dispatch(
 							setDestination({
 								location: details.geometry.location,
 								description: data.description,
 							})
 						)
-
-						navigation.navigate('RideOptionsCard')
 					}}
 					placeholder="Where to?"
 					query={{

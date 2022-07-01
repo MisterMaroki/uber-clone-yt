@@ -43,7 +43,7 @@ const RideOptionsCard = () => {
 	const travelTimeInformation = useSelector(selectTravelTimeInformation)
 
 	return (
-		<SafeAreaView style={tailwind`bg-white flex-grow relative`}>
+		<SafeAreaView style={tailwind`flex-1 bg-white relative flex-grow`}>
 			<View>
 				<TouchableOpacity
 					style={tailwind`absolute top-3 left-5 z-50 p-3 rounded-full`}
@@ -52,7 +52,7 @@ const RideOptionsCard = () => {
 					<Icon name="chevron-left" type="fontawesome" />
 				</TouchableOpacity>
 				<Text style={tailwind`text-center py-5 text-xl`}>
-					Select a ride - {travelTimeInformation?.distance.text}
+					Select a ride - {travelTimeInformation?.distance?.text}
 				</Text>
 			</View>
 			<FlatList
@@ -61,7 +61,7 @@ const RideOptionsCard = () => {
 				renderItem={({ item: { id, title, multiplier, image }, item }) => (
 					<TouchableOpacity
 						onPress={() => setSelected(item)}
-						style={tailwind`flex flex-row items-center justify-between px-10 ${
+						style={tailwind`flex flex-row items-center justify-between px-7 ${
 							selected?.id === id && 'bg-gray-200'
 						}`}
 					>
@@ -71,7 +71,7 @@ const RideOptionsCard = () => {
 						/>
 						<View style={tailwind`-ml-6`}>
 							<Text style={tailwind`text-xl font-semibold`}>{title}</Text>
-							<Text>{travelTimeInformation?.duration.text}</Text>
+							<Text>{travelTimeInformation?.duration?.text}</Text>
 						</View>
 						<Text style={tailwind`text-xl`}>
 							{new Intl.NumberFormat('en-gb', {
@@ -79,7 +79,7 @@ const RideOptionsCard = () => {
 								currency: 'GBP',
 							}).format(
 								(SURGE_CHARGE_RATE *
-									travelTimeInformation?.duration.value *
+									travelTimeInformation?.duration?.value *
 									multiplier) /
 									100
 							)}
@@ -87,9 +87,9 @@ const RideOptionsCard = () => {
 					</TouchableOpacity>
 				)}
 			/>
-			<View>
+			<View style={tailwind`mt-auto border-t border-gray-200`}>
 				<TouchableOpacity
-					disabled={!selected}
+					disabled={selected === null}
 					style={tailwind`bg-black py-3 m-3 ${!selected && 'bg-gray-300'}`}
 				>
 					<Text style={tailwind`text-center text-xl text-white`}>
@@ -102,5 +102,3 @@ const RideOptionsCard = () => {
 }
 
 export default RideOptionsCard
-
-const styles = StyleSheet.create({})

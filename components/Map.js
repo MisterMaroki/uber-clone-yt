@@ -27,7 +27,7 @@ const Map = () => {
 					},
 				],
 				{
-					edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+					edgePadding: { top: 30, right: 30, bottom: 30, left: 30 },
 					animated: true,
 				}
 			)
@@ -44,7 +44,7 @@ const Map = () => {
 					},
 				],
 				{
-					edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+					edgePadding: { top: 30, right: 30, bottom: 30, left: 30 },
 					animated: true,
 				}
 			)
