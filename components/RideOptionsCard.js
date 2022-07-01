@@ -35,6 +35,8 @@ const data = [
 	},
 ]
 
+const SURGE_CHARGE_RATE = 1.5
+
 const RideOptionsCard = () => {
 	const navigation = useNavigation()
 	const [selected, setSelected] = useState(null)
@@ -71,7 +73,17 @@ const RideOptionsCard = () => {
 							<Text style={tailwind`text-xl font-semibold`}>{title}</Text>
 							<Text>{travelTimeInformation?.duration.text}</Text>
 						</View>
-						<Text style={tailwind`text-xl`}>£99.00</Text>
+						<Text style={tailwind`text-xl`}>
+							{new Intl.NumberFormat('en-gb', {
+								style: 'currency',
+								currency: 'GBP',
+							}).format(
+								(SURGE_CHARGE_RATE *
+									travelTimeInformation?.duration.value *
+									multiplier) /
+									100
+							)}
+						</Text>
 					</TouchableOpacity>
 				)}
 			/>
